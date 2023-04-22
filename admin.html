@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="adminstyle.css">
+    <title>Admin Panel - Add Podcast</title>
+</head>
+<body>
+<header>
+        <a href="dashboard.html">Back to Dashboard</a>
+    </header>
+    <h1>Add Podcast</h1>
+    <form action="submit.php" method="post">
+        <label for="name">Podcast Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="description">Podcast Description:</label>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="music">Music</option>
+            <option value="sports">Sports</option>
+            <option value="news">News</option>
+            <option value="entertainment">Entertainment</option>
+        </select><br><br>
+
+        <label for="type">Type:</label>
+        <input type="radio" id="audio" name="type" value="audio">
+        <label for="audio">Audio</label>
+        <input type="radio" id="video" name="type" value="video">
+        <label for="video">Video</label><br><br>
+
+        <label for="speaker">Speaker:</label>
+        <input type="text" id="speaker" name="speaker"><br><br>
+
+        <label for="file">File Upload:</label>
+        <input type="file" id="file" name="file"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

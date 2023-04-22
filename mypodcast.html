@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="adminstyle.css">
+    <title>My Podcasts</title>
+</head>
+<body>
+    <header>
+        <a href="dashboard.html">Back to Dashboard</a>
+    </header>
+    <h1>My Podcasts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Podcast Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Speaker</th>
+                <th>File</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include 'db_connection.php';
+            // Fetch data from the "podcasts" table
+            $sql = "SELECT * FROM podcasts";
+            $result = $conn->query($sql);
+
+            // Generate the rows based on the data
+            if ($result->num_rows > 0) {
+              while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["name"] . "</td>";
+                echo "<td>" . $row["description"] . "</td>";
+                echo "<td>" . $row["category"] . "</td>";
+                echo "<td>" . $row["type"] . "</td>";
+                echo "<td>" . $row["speaker"] . "</td>";
+                echo "<td><a href='" . $row["file_url"] . "'>Download File</a></td>";
+                echo "</tr>";
+              }
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
+        </tbody>
+    </table>
+</body>
+</html>
